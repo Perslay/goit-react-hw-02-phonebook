@@ -1,9 +1,7 @@
 // ADD PROPTYPES
 
 import React, { Component } from 'react';
-// https://www.npmjs.com/package/nanoid
 import { nanoid } from 'nanoid';
-// model.id = nanoid() //=> "V1StGXR8_Z5jdHi6B-myT"
 import css from '../styles/App.module.css';
 
 export class App extends Component {
@@ -50,8 +48,12 @@ export class App extends Component {
   };
 
   render() {
-    const { contacts, name, number } = this.state;
+    const { contacts, name, number, filter } = this.state;
     const { nameInputId, numberInputId, filterInputId, handleChange } = this;
+
+    const filteredContacts = contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
 
     return (
       <div className={css.appContainer}>
@@ -93,7 +95,7 @@ export class App extends Component {
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           />
           <ul>
-            {contacts.map(contact => (
+            {filteredContacts.map(contact => (
               <li key={contact.id}>
                 {contact.name}: {contact.number}
               </li>
