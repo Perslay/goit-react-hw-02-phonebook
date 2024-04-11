@@ -1,3 +1,5 @@
+// ADD PROPTYPES
+
 import React, { Component } from 'react';
 // https://www.npmjs.com/package/nanoid
 import { nanoid } from 'nanoid';
@@ -11,29 +13,23 @@ export class App extends Component {
     number: '',
   };
 
-  handleChange = event => {
-    this.setState({
-      name: event.target.value,
-    });
-  };
-
   add = event => {
     event.preventDefault();
 
     const form = event.currentTarget;
-    const name = form.elements.name.value;
+    const newName = form.elements.name.value;
+    const newNumber = form.elements.number.value;
 
-    const updatedContacts = [
-      ...this.state.contacts,
-      {
-        name: name,
-        id: nanoid(),
-      },
-    ];
-
-    this.setState({
-      contacts: updatedContacts,
-    });
+    this.setState(prevState => ({
+      contacts: [
+        ...prevState.contacts,
+        {
+          name: newName,
+          number: newNumber,
+          id: nanoid(),
+        },
+      ],
+    }));
 
     form.reset();
   };
