@@ -32,16 +32,24 @@ export class App extends Component {
     const newName = form.elements.name.value;
     const newNumber = form.elements.number.value;
 
-    this.setState(prevState => ({
-      contacts: [
-        ...prevState.contacts,
-        {
-          name: newName,
-          number: newNumber,
-          id: nanoid(),
-        },
-      ],
-    }));
+    const nameExists = this.state.contacts.some(
+      contact => contact.name === newName
+    );
+
+    if (nameExists) {
+      alert(newName + ' is already in contacts.');
+    } else {
+      this.setState(prevState => ({
+        contacts: [
+          ...prevState.contacts,
+          {
+            name: newName,
+            number: newNumber,
+            id: nanoid(),
+          },
+        ],
+      }));
+    }
 
     form.reset();
   };
