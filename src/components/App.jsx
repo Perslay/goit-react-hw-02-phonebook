@@ -1,5 +1,3 @@
-// ADD PROPTYPES
-
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 import css from '../styles/App.module.css';
@@ -54,13 +52,15 @@ export class App extends Component {
     form.reset();
   };
 
+  deleteContact = id => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
+    }));
+  };
+
   render() {
-    const {
-      contacts,
-      // name, number,
-      filter,
-    } = this.state;
-    const { add, handleChange } = this;
+    const { contacts, filter } = this.state;
+    const { add, deleteContact, handleChange } = this;
 
     return (
       <div className={css.appContainer}>
@@ -72,7 +72,11 @@ export class App extends Component {
         />
         <h2>Contacts</h2>
         <Filter handleChange={handleChange} filterInputId={nanoid()} />
-        <ContactList contacts={contacts} filter={filter} />
+        <ContactList
+          contacts={contacts}
+          filter={filter}
+          deleteContact={deleteContact}
+        />
       </div>
     );
   }
