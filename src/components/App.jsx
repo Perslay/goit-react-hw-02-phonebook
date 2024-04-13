@@ -48,7 +48,11 @@ export class App extends Component {
   };
 
   render() {
-    const { contacts, name, number, filter } = this.state;
+    const {
+      contacts,
+      // name, number,
+      filter,
+    } = this.state;
     const { nameInputId, numberInputId, filterInputId, handleChange } = this;
 
     const filteredContacts = contacts.filter(contact =>
