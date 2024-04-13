@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const ContactList = ({ contacts, filter }) => {
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
@@ -14,4 +16,9 @@ export const ContactList = ({ contacts, filter }) => {
       </ul>
     </div>
   );
+};
+
+ContactList.propTypes = {
+  contacts: PropTypes.array.isRequired,
+  filter: PropTypes.string.isRequired,
 };

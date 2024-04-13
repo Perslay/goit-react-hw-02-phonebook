@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const Filter = ({ handleChange, filterInputId }) => {
   return (
     <div>
@@ -12,4 +14,9 @@ export const Filter = ({ handleChange, filterInputId }) => {
       />
     </div>
   );
+};
+
+Filter.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  filterInputId: PropTypes.string.isRequired,
 };
