@@ -64,13 +64,13 @@ export class App extends Component {
 
     return (
       <div className={css.appContainer}>
-        <h1>Phonebook</h1>
+        <h1 className={css.firstHeading}>Phonebook</h1>
         <ContactForm
           add={add}
           nameInputId={nanoid()}
           numberInputId={nanoid()}
         />
-        <h2>Contacts</h2>
+        <h2 className={css.secondHeading}>Contacts</h2>
         <Filter handleChange={handleChange} filterInputId={nanoid()} />
         <ContactList
           contacts={contacts}

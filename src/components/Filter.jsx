@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
+import css from '../styles/Filter.module.css';
 
 export const Filter = ({ handleChange, filterInputId }) => {
   return (
-    <div>
-      <p>Find contacts by name</p>
+    <div className={css.filter}>
+      <p className={css.paragraph}>Find contacts by name</p>
       <input
+        className={css.input}
         onChange={handleChange}
         type="text"
         name="filter"

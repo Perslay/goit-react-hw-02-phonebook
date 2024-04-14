@@ -3,6 +3,9 @@
 :root {
   --color-white: #f8f8f8;
   --color-light: #ddd;
+  --color-lightgray: #999;
+  --color-gray: #777;
+  --color-darkgray: #555;
   --color-black: #111;
 }
 
@@ -41,4 +44,8 @@ ol {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+button {
+  cursor: pointer;
 }
