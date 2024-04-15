@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import css from '../styles/Filter.module.css';
 
-export const Filter = ({ handleChange, filterInputId }) => {
+export const Filter = ({ handleFilter, filterInputId }) => {
   return (
     <div className={css.filter}>
       <p>Find contacts by name</p>
       <input
         className={css.input}
-        onChange={handleChange}
+        onChange={handleFilter}
         type="text"
         name="filter"
         id={filterInputId}
@@ -19,6 +19,6 @@ export const Filter = ({ handleChange, filterInputId }) => {
 };
 
 Filter.propTypes = {
-  handleChange: PropTypes.func.isRequired,
+  handleFilter: PropTypes.func.isRequired,
   filterInputId: PropTypes.string.isRequired,
 };

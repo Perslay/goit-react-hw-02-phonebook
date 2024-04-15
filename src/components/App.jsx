@@ -18,7 +18,15 @@ export class App extends Component {
     number: '',
   };
 
-  handleChange = evt => {
+  handleName = evt => {
+    this.setState({ name: evt.target.value });
+  };
+
+  handleNumber = evt => {
+    this.setState({ number: evt.target.value });
+  };
+
+  handleFilter = evt => {
     this.setState({ filter: evt.target.value });
   };
 
@@ -26,8 +34,30 @@ export class App extends Component {
     event.preventDefault();
 
     const form = event.currentTarget;
-    const newName = form.elements.name.value;
-    const newNumber = form.elements.number.value;
+    // const newName = form.elements.name.value;
+    // const newNumber = form.elements.number.value;
+
+    // const nameExists = this.state.contacts.some(
+    //   contact => contact.name === newName
+    // );
+
+    // if (nameExists) {
+    //   alert(newName + ' is already in contacts.');
+    // } else {
+    //   this.setState(prevState => ({
+    //     contacts: [
+    //       ...prevState.contacts,
+    //       {
+    //         name: newName,
+    //         number: newNumber,
+    //         id: nanoid(),
+    //       },
+    //     ],
+    //   }));
+    // }
+
+    const newName = this.state.name;
+    const newNumber = this.state.number;
 
     const nameExists = this.state.contacts.some(
       contact => contact.name === newName
@@ -59,7 +89,7 @@ export class App extends Component {
 
   render() {
     const { contacts, filter } = this.state;
-    const { add, deleteContact, handleChange } = this;
+    const { add, deleteContact, handleFilter, handleName, handleNumber } = this;
 
     return (
       <div className={css.appContainer}>
@@ -68,9 +98,11 @@ export class App extends Component {
           add={add}
           nameInputId={nanoid()}
           numberInputId={nanoid()}
+          handleName={handleName}
+          handleNumber={handleNumber}
         />
         <h2 className={css.secondHeading}>Contacts</h2>
-        <Filter handleChange={handleChange} filterInputId={nanoid()} />
+        <Filter handleFilter={handleFilter} filterInputId={nanoid()} />
         <ContactList
           contacts={contacts}
           filter={filter}

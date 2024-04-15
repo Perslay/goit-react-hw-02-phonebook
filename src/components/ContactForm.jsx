@@ -1,7 +1,13 @@
 import PropTypes from 'prop-types';
 import css from '../styles/ContactForm.module.css';
 
-export const ContactForm = ({ add, nameInputId, numberInputId }) => {
+export const ContactForm = ({
+  add,
+  nameInputId,
+  numberInputId,
+  handleName,
+  handleNumber,
+}) => {
   return (
     <form className={css.form} onSubmit={add}>
       <div className={css.formBox}>
@@ -9,6 +15,7 @@ export const ContactForm = ({ add, nameInputId, numberInputId }) => {
           Name
         </label>
         <input
+          onChange={handleName}
           className={css.input}
           type="text"
           name="name"
@@ -23,6 +30,7 @@ export const ContactForm = ({ add, nameInputId, numberInputId }) => {
           Number
         </label>
         <input
+          onChange={handleNumber}
           className={css.input}
           type="tel"
           name="number"
@@ -43,4 +51,6 @@ ContactForm.propTypes = {
   add: PropTypes.func.isRequired,
   nameInputId: PropTypes.string.isRequired,
   numberInputId: PropTypes.string.isRequired,
+  handleName: PropTypes.func.isRequired,
+  handleNumber: PropTypes.func.isRequired,
 };
