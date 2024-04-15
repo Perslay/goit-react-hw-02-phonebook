@@ -17,6 +17,12 @@
   border: none;
 }
 
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 /* check if need paragraph */
 
 .paragraph {
@@ -29,7 +35,7 @@
   font-size: 16px;
   margin: 0 auto;
   padding: 0.2rem;
-  width: 50%;
+  width: 130px;
 }
 
 .button:hover,
@@ -40,4 +46,35 @@
 
 .button:active {
   border-style: inset;
+}
+
+@media screen and (min-width: 768px) {
+  .listItem {
+    flex-direction: column;
+  }
+
+  .text {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .paragraph:first-child::after {
+    content: ':';
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .list {
+    gap: 1rem;
+  }
+
+  .listItem {
+    align-items: center;
+    flex-direction: row;
+    padding-bottom: 1rem;
+  }
+
+  .button {
+    margin-right: 0;
+  }
 }

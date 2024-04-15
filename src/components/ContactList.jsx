@@ -10,9 +10,10 @@ export const ContactList = ({ contacts, filter, deleteContact }) => {
     <ul className={css.list}>
       {filteredContacts.map(contact => (
         <li className={css.listItem} key={contact.id}>
-          <p className={css.paragraph}>
-            {contact.name}: {contact.number}
-          </p>
+          <div className={css.text}>
+            <p className={css.paragraph}>{contact.name}</p>
+            <p className={css.paragraph}>{contact.number}</p>
+          </div>
           <button
             className={css.button}
             type="button"

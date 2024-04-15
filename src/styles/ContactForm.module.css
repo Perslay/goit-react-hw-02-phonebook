@@ -36,7 +36,7 @@
   font-size: inherit;
   margin: 0 auto;
   padding: 0.5rem;
-  width: 80%;
+  width: 180px;
 }
 
 .button:hover,
@@ -47,4 +47,27 @@
 
 .button:active {
   border-style: inset;
+}
+
+@media screen and (min-width: 768px) {
+  .formBox {
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .label {
+    flex-basis: 20%;
+    text-align: left;
+  }
+
+  .input {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .form {
+    margin-bottom: 5rem;
+  }
 }

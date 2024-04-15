@@ -20,7 +20,6 @@ export class App extends Component {
 
   handleChange = evt => {
     this.setState({ filter: evt.target.value });
-    console.log(this.state.filter);
   };
 
   add = event => {
