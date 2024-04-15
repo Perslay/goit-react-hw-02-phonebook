@@ -4,7 +4,7 @@ import css from '../styles/Filter.module.css';
 export const Filter = ({ handleChange, filterInputId }) => {
   return (
     <div className={css.filter}>
-      <p className={css.paragraph}>Find contacts by name</p>
+      <p>Find contacts by name</p>
       <input
         className={css.input}
         onChange={handleChange}

@@ -27,7 +27,8 @@
 .input:focus,
 .input:hover {
   outline: none;
-  border-color: var(--color-darkgray);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 5px var(--color-accent);
 }
 
 .button {
@@ -41,7 +42,8 @@
 
 .button:hover,
 .button:focus {
-  box-shadow: 0 0 5px var(--color-darkgray);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 5px var(--color-accent);
   outline: none;
 }
 
